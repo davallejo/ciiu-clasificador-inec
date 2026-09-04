@@ -1,0 +1,24 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "installCommand": "pip install -r requirements.txt && cd frontend && npm install",
+  "buildCommand": "cd frontend && npm run build",
+  "outputDirectory": "frontend/.next",
+  "functions": {
+    "api/index.py": {
+      "runtime": "@vercel/python@4",
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.py"
+    }
+  ],
+  "env": {
+    "APP_ENV": "production",
+    "PYTHONPATH": "backend",
+    "CIIU_MODELO_DIR": "/tmp/ciiu_models"
+  }
+}

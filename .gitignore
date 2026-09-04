@@ -1,0 +1,133 @@
+# ============================================================
+#  .gitignore — ciiu-clasificador-inec  (GitHub + Vercel)
+# ============================================================
+#  NUNCA subas al repositorio público:
+#   · Credenciales / archivos .env
+#   · Entornos virtuales, node_modules, dependencias
+#   · Cache compilado (__pycache__, .next, .pkl, .npz)
+#   · Datos del PDF (Insumos/, data/) — se regeneran con los scripts ETL
+#   · Archivos IDE (VSCode, JetBrains) y basura del OS
+
+# ------------------------------------------------------------
+#  Python / FastAPI / Pip
+# ------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+Pipfile.lock
+poetry.lock
+*.whl
+
+# Entornos virtuales (TODAS las variantes)
+.venv/
+venv/
+ENV/
+env/
+.python-version   # (se usa runtime.txt en Vercel; pyenv local -> preferentemente NO subir)
+
+# Cache clasificador CIIU (TF-IDF + dataset serializado)
+#   SE REGENERA AUTOMÁTICAMENTE en el 1er request al backend.
+#   No ocupan espacio en el repo ni son deterministas entre máquinas.
+models/*.pkl
+models/*.npz
+backend/models/*.pkl
+backend/models/*.npz
+
+# ------------------------------------------------------------
+#  Node / Next.js / npm
+# ------------------------------------------------------------
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts          # (se regenera al hacer `next build` o `next dev`)
+.pnpm-store/
+.yarn/
+.yarn/cache
+
+# ------------------------------------------------------------
+#  Environment / SECRETOS  (NUNCA SUBIR — NUNCA — NUNCA)
+# ------------------------------------------------------------
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+frontend/.env
+frontend/.env.local
+
+# ------------------------------------------------------------
+#  IDE / Editor
+# ------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# ------------------------------------------------------------
+#  OS / Archivos basura
+# ------------------------------------------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ------------------------------------------------------------
+#  Datos ETL  (NUNCA al repo público — tamaño grande + derecho de autor PDF INEC)
+#   · Se regeneran CORRIENDO LOS 5 SCRIPTS (01 → 05) del PDF.
+#   · Si quieres respaldarlos, hazlo en Google Drive / S3 / storage privado.
+# ------------------------------------------------------------
+Insumos/ciiu.pdf
+Insumos/*.pdf
+data/extraidos/*
+data/parsed/*
+# Permitimos que las carpetas vacías con .gitkeep se suban (para que existan al clonar)
+!data/extraidos/.gitkeep
+!data/parsed/.gitkeep
+!Insumos/.gitkeep
+
+# Otros archivos de trabajo temporal
+salida_analisis.txt
+analizar_pdf.py
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.bak
+*.tmp
+_tmp_*
+
+# ------------------------------------------------------------
+#  Testing / coverage
+# ------------------------------------------------------------
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/

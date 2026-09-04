@@ -1,0 +1,44 @@
+# ============================================================
+#  PROYECTO CIIU CLASIFICADOR INEC — Dependencias Python
+# ============================================================
+#  Compatible: Python 3.8 · 3.9 · 3.10 · 3.11 · 3.12
+#  (Se usan environment markers para pinnear versiones correctamente
+#   según la versión del intérprete.)
+# ============================================================
+
+# ---------- Core: scripts ETL (pasos 01 → 05) ----------
+PyMuPDF==1.24.10
+python-dotenv==1.0.1
+psycopg2-binary==2.9.9
+
+# ---------- Core: backend FastAPI + SQLAlchemy ----------
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+sqlalchemy==2.0.35
+python-multipart==0.0.9
+httpx==0.27.2
+
+# ---------- Pydantic v2 (con fallback a v1 en código) ----------
+pydantic==2.9.2
+pydantic-settings==2.5.2
+
+# ---------- IA: clasificador ----------
+#   scikit-learn + scipy + numpy — versiones compatibles
+#   según versión de Python (evita conflictos de ABI)
+numpy==1.24.4 ; python_version < "3.9"
+numpy==1.26.4 ; python_version >= "3.9" and python_version < "3.12"
+numpy==1.26.4 ; python_version >= "3.12"
+scipy==1.10.1 ; python_version < "3.9"
+scipy==1.14.1 ; python_version >= "3.9" and python_version < "3.12"
+scipy==1.14.1 ; python_version >= "3.12"
+scikit-learn==1.3.2 ; python_version < "3.9"
+scikit-learn==1.5.2 ; python_version >= "3.9"
+joblib==1.4.2
+rapidfuzz==3.9.7
+
+# ---------- Serverless (Vercel Python Functions) ----------
+mangum==0.17.0
+
+# ---------- Optional: despliegue WSGI en servidor dedicado ----------
+# Descomenta si vas a usar gunicorn en un VPS / contenedor:
+# gunicorn==22.0.0

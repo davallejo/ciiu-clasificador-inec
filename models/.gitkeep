@@ -1,0 +1,7 @@
+# Caché serializado del clasificador:
+#   - tfidf_vectorizer.pkl
+#   - tfidf_matrix.npz
+#   - dataset_actividades.pkl
+#
+# Se regeneran AUTOMÁTICAMENTE en el 1er request al backend
+# (no hace falta subirlos al repo).
