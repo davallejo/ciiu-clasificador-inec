@@ -734,10 +734,9 @@ Senior Full-Stack Engineer · Arquitecto Cloud AWS/GCP · Data Scientist
 
 > 🧩 *"Construyo productos de IA que escalan sin deudas técnicas."*
 
-- 🌐 Web: **[diegovallejo.dev](https://diegovallejo.dev)**
-- 💼 LinkedIn: **[linkedin.com/in/diegovallejo](https://linkedin.com/in/diegovallejo)**
-- 💻 GitHub: **[@diegovallejo](https://github.com/diegovallejo)**
-- 📧 Email: **contacto@diegovallejo.dev**
+- 🌐 Web: **https://davallejo.github.io/**
+- 💼 LinkedIn: **https://www.linkedin.com/in/ing-diego-vallejo/**
+- 💻 GitHub: **[@davallejo](https://github.com/davallejo)**
 
 ---
 
